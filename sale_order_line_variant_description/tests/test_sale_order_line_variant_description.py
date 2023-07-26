@@ -54,5 +54,5 @@ class TestSaleOrderLineVariantDescription(TransactionCase):
                 "order_id": so.id,
             }
         )
-        so_line._onchange_product_id_warning()
-        self.assertEqual(product.variant_description_sale, so_line.name)
+        so_line.product_id_change()
+        self.assertIn(product.variant_description_sale, so_line.name)
